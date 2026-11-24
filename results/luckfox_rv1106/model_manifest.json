@@ -1,0 +1,44 @@
+{
+  "target": "Rockchip RV1106 / Luckfox Pico Max",
+  "precision": "INT8",
+  "classes": {
+    "0": "maduro",
+    "1": "pinton",
+    "2": "verde",
+    "3": "negro"
+  },
+  "models": {
+    "yolo26n-cafe-rv1106.rknn": {
+      "purpose": "Detección y clasificación sobre fotograma completo",
+      "input_size": [
+        640,
+        640
+      ],
+      "input_to_rknn": "RGB NHWC uint8 0..255, letterbox 114; no dividir por 255",
+      "postprocess": "Usar yolo26n-rv1106-tail.onnx y NMS. Requiere ONNX Runtime CPU en placa o implementar la decodificación en C/C++."
+    },
+    "mobilenetv2-cafe-rv1106.rknn": {
+      "purpose": "Clasificación de un recorte ya localizado",
+      "input_size": [
+        224,
+        224
+      ],
+      "input_to_rknn": "RGB NHWC uint8 0..255, recorte de un grano y resize; no aplicar normalización externa",
+      "output": "4 scores en el orden de labels.txt; pedir salida float al runtime o de-cuantizar con sus escalas."
+    }
+  },
+  "conversion_toolkit": "RKNN-Toolkit2 2.3.2",
+  "quantization_data": {
+    "yolo": "data/yolo_dataset/images/train (split train, sin test)",
+    "mobilenet": "500 crops, 125 por clase, del split train"
+  },
+  "not_hardware_validated": true,
+  "files_sha256": {
+    "README_LUCKFOX.md": "3fa95f1e642a19cb00fca22359f47a72a4ae2472ac05ebf278f55584c7bdc4af",
+    "labels.txt": "d1b7ed05dafef6c622f31fb3aa1bcc1533ce9076bd0d369398a827d00d95eed5",
+    "mobilenetv2-cafe-rv1106.rknn": "a1eb9d856acc12d632a80bebdbd1eb22297580c9407f02f8f173413cea4abd12",
+    "yolo26n-cafe-rv1106.rknn": "b21fe598ecc13f7a4c1085b0a917de17c816a0c2d2bf97d4c50b1eea8b495df2",
+    "yolo26n-rv1106-metadata.yaml": "ed832a9ab28cdcb872e5e29ca2879b57c55bfb78395cdea28e9dc8e6d6425c59",
+    "yolo26n-rv1106-tail.onnx": "29be552f13d937f9d4c5cab8c3434363a2bd41beb97d14f7b9305a4dc60b2df0"
+  }
+}

@@ -1,0 +1,28 @@
+description: Ultralytics YOLO26n model trained on /mnt/c/Users/SALAZAR/Desktop/COMPARTIDA/PROGRAMACIÓN/CafeSort-AI/data/yolo_dataset/data_runtime.yaml
+author: Ultralytics
+date: "2026-11-23T23:00:22.361912-05:00"
+version: "8.4.216"
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+head: Detect
+batch: 1
+imgsz:
+- 640
+- 640
+names:
+  0: maduro
+  1: pinton
+  2: verde
+  3: negro
+args:
+  data: /mnt/c/Users/SALAZAR/Desktop/COMPARTIDA/PROGRAMACIÓN/CafeSort-AI/results/luckfox_rv1106/yolo_calibration.yaml
+  batch: 1
+  name: rv1106
+  fraction: 1.0
+  quantize: 8
+  simplify: true
+  opset: null
+channels: 3
+end2end: false

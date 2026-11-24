@@ -1,0 +1,79 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Entornos virtuales: conservar pyproject.toml y uv.lock
+.venv/
+venv/
+env/
+ENV/
+.uv/
+
+# Configuración local y secretos
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Cachés, temporales y logs
+.cache/
+cache/
+*.cache
+*.log
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Datos de entrenamiento y archivos descargados
+data/
+dataset/
+documento/*.pdf
+*.pt
+*.pth
+*.keras
+*.weights
+*.safetensors
+*.engine
+*.torchscript
+*.tflite
+*.onnx
+*.rknn
+
+# Salidas generadas de entrenamiento/inferencia.
+# Se conservan el informe, el resumen y el paquete RV1106 seleccionado abajo.
+results/*
+!results/benchmark_report.md
+!results/benchmark_summary.csv
+!results/luckfox_rv1106/
+results/luckfox_rv1106/*
+!results/luckfox_rv1106/README_LUCKFOX.md
+!results/luckfox_rv1106/labels.txt
+!results/luckfox_rv1106/model_manifest.json
+!results/luckfox_rv1106/yolo26n-rv1106-metadata.yaml
+!results/luckfox_rv1106/yolo26n-cafe-rv1106.rknn
+!results/luckfox_rv1106/mobilenetv2-cafe-rv1106.rknn
+!results/luckfox_rv1106/yolo26n-rv1106-tail.onnx
+
+# Ultralytics y otras ejecuciones locales
+runs/
+wandb/
+mlruns/
+lightning_logs/
+
+# IDE y sistema operativo
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
